@@ -1,0 +1,22 @@
+# Project Dependencies and System Files
+node_modules/
+.DS_Store
+Thumbs.db
+
+# Build & Environment
+dist/
+build/
+.env
+.env.local
+*.log
+
+# IDE Files
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Temporary files
+*.tmp
+*.bak
