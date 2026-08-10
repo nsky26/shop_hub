@@ -789,3 +789,108 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
+/* Header Action Buttons & Active Link */
+.nav-link.active {
+    color: var(--primary);
+    background: rgba(99, 102, 241, 0.1);
+    font-weight: 700;
+}
+
+.auth-btn-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 8px;
+}
+
+.btn-outline-nav {
+    background: transparent;
+    border: 1.5px solid var(--border-color);
+    color: var(--dark-bg);
+    padding: 8px 18px;
+    font-size: 13px;
+    border-radius: 30px;
+}
+
+.btn-outline-nav:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: rgba(99, 102, 241, 0.05);
+}
+
+.btn-primary-nav {
+    background: var(--primary-gradient);
+    color: white;
+    padding: 8px 20px;
+    font-size: 13px;
+    border-radius: 30px;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.btn-primary-nav:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(99, 102, 241, 0.45);
+}
+
+.user-profile-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    background: #f1f5f9;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.user-profile-badge:hover {
+    background: var(--primary-light);
+    color: var(--primary);
+}
+
+/* Auth Modal Tabs */
+.auth-tabs {
+    display: flex;
+    gap: 12px;
+    border-bottom: 2px solid var(--border-color);
+    width: 100%;
+    padding-bottom: 12px;
+}
+
+.auth-tab {
+    background: none;
+    border: none;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 8px 16px;
+    position: relative;
+    transition: var(--transition);
+}
+
+.auth-tab.active {
+    color: var(--primary);
+}
+
+.auth-tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -14px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--primary-gradient);
+    border-radius: 2px;
+}
+
+.mobile-auth-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+

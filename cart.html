@@ -30,15 +30,17 @@
 
             <div class="nav-actions">
                 <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
-                <a href="products.html" class="nav-link"><i class="fas fa-th-large"></i> Catalog</a>
-                <button id="userAuthBtn" class="nav-link user-status-btn">
-                    <i class="fas fa-user-circle"></i> <span id="userAuthLabel">Login</span>
-                </button>
-                <a href="cart.html" class="nav-link cart-link">
+                <a href="products.html" class="nav-link"><i class="fas fa-grid-2"></i> Catalog</a>
+                <a href="cart.html" class="nav-link cart-link active">
                     <i class="fas fa-shopping-cart"></i>
                     <span>Cart</span>
                     <span class="cart-count" id="cartCount">0</span>
                 </a>
+                
+                <div class="auth-btn-group" id="authNavGroup">
+                    <button id="loginNavBtn" class="btn btn-outline-nav"><i class="fas fa-sign-in-alt"></i> Login</button>
+                    <button id="signupNavBtn" class="btn btn-primary-nav"><i class="fas fa-user-plus"></i> Sign Up</button>
+                </div>
             </div>
         </div>
     </nav>
@@ -157,23 +159,45 @@
         </div>
     </footer>
 
-    <!-- Login Modal -->
+    <!-- Auth Modal (Login / Sign Up) -->
     <div class="modal-overlay" id="loginModal">
         <div class="modal-box">
             <div class="modal-header">
-                <h3 class="modal-title" id="authModalTitle"><i class="fas fa-user-circle text-gradient"></i> Customer Login</h3>
+                <div class="auth-tabs">
+                    <button class="auth-tab active" id="tabLoginBtn"><i class="fas fa-sign-in-alt"></i> Login</button>
+                    <button class="auth-tab" id="tabSignupBtn"><i class="fas fa-user-plus"></i> Sign Up</button>
+                </div>
                 <button class="modal-close" id="closeLoginModal">&times;</button>
             </div>
+
+            <!-- Login Form -->
             <form id="loginForm">
                 <div class="form-group">
-                    <label for="userEmail">Email Address</label>
+                    <label for="userEmail"><i class="fas fa-envelope"></i> Email Address</label>
                     <input type="email" id="userEmail" placeholder="name@example.com" required>
                 </div>
                 <div class="form-group">
-                    <label for="userPass">Password</label>
+                    <label for="userPass"><i class="fas fa-lock"></i> Password</label>
                     <input type="password" id="userPass" placeholder="••••••••" required>
                 </div>
                 <button type="submit" class="btn btn-primary btn-block btn-lg"><i class="fas fa-sign-in-alt"></i> Sign In</button>
+            </form>
+
+            <!-- Sign Up Form -->
+            <form id="signupForm" style="display: none;">
+                <div class="form-group">
+                    <label for="signupName"><i class="fas fa-user"></i> Full Name</label>
+                    <input type="text" id="signupName" placeholder="John Doe" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail"><i class="fas fa-envelope"></i> Email Address</label>
+                    <input type="email" id="signupEmail" placeholder="john@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPass"><i class="fas fa-lock"></i> Create Password</label>
+                    <input type="password" id="signupPass" placeholder="At least 6 characters" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block btn-lg"><i class="fas fa-user-plus"></i> Create Account</button>
             </form>
         </div>
     </div>

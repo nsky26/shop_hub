@@ -140,9 +140,34 @@ function getCurrentUser() {
 
 function updateAuthUI() {
     const user = getCurrentUser();
-    const userAuthLabel = document.getElementById('userAuthLabel');
-    if (userAuthLabel) {
-        userAuthLabel.textContent = user ? user.name.split(' ')[0] : 'Login';
+    const authNavGroup = document.getElementById('authNavGroup');
+
+    if (authNavGroup) {
+        if (user) {
+            authNavGroup.innerHTML = `
+                <div class="user-profile-badge" id="userProfileBtn" title="Click to logout">
+                    <i class="fas fa-user-circle text-gradient"></i>
+                    <span>${user.name.split(' ')[0]}</span>
+                    <i class="fas fa-sign-out-alt" style="font-size: 12px; margin-left: 4px; opacity: 0.6;"></i>
+                </div>
+            `;
+            const profileBtn = document.getElementById('userProfileBtn');
+            if (profileBtn) {
+                profileBtn.addEventListener('click', () => {
+                    if (confirm(`Logged in as ${user.name} (${user.email}). Log out?`)) {
+                        localStorage.removeItem('currentUser');
+                        updateAuthUI();
+                        if (typeof showToast === 'function') showToast('Logged out successfully');
+                    }
+                });
+            }
+        } else {
+            authNavGroup.innerHTML = `
+                <button id="loginNavBtn" class="btn btn-outline-nav"><i class="fas fa-sign-in-alt"></i> Login</button>
+                <button id="signupNavBtn" class="btn btn-primary-nav"><i class="fas fa-user-plus"></i> Sign Up</button>
+            `;
+            bindAuthModalEvents();
+        }
     }
 }
 
@@ -152,30 +177,68 @@ document.addEventListener('DOMContentLoaded', () => {
     loadCartDisplay();
     updateAuthUI();
 
-    // Login Modal Triggers
-    const userAuthBtn = document.getElementById('userAuthBtn');
-    const mobileAuthBtn = document.getElementById('mobileAuthBtn');
+function bindAuthModalEvents() {
     const loginModal = document.getElementById('loginModal');
+    const loginNavBtn = document.getElementById('loginNavBtn');
+    const signupNavBtn = document.getElementById('signupNavBtn');
+    const mobileLoginBtn = document.getElementById('mobileLoginBtn');
+    const mobileSignupBtn = document.getElementById('mobileSignupBtn');
     const closeLoginModal = document.getElementById('closeLoginModal');
+    const tabLoginBtn = document.getElementById('tabLoginBtn');
+    const tabSignupBtn = document.getElementById('tabSignupBtn');
     const loginForm = document.getElementById('loginForm');
+    const signupForm = document.getElementById('signupForm');
 
-    function openModal() {
-        const user = getCurrentUser();
-        if (user) {
-            if (confirm(`Logged in as ${user.name} (${user.email}). Would you like to log out?`)) {
-                localStorage.removeItem('currentUser');
-                updateAuthUI();
-                if (typeof showToast === 'function') showToast('Logged out successfully');
-            }
-        } else if (loginModal) {
-            loginModal.classList.add('active');
+    function openModal(mode = 'login') {
+        if (!loginModal) return;
+        loginModal.classList.add('active');
+        if (mode === 'login') {
+            switchTab('login');
+        } else {
+            switchTab('signup');
         }
     }
 
-    if (userAuthBtn) userAuthBtn.addEventListener('click', openModal);
-    if (mobileAuthBtn) mobileAuthBtn.addEventListener('click', openModal);
+    function switchTab(mode) {
+        if (mode === 'login') {
+            if (tabLoginBtn) tabLoginBtn.classList.add('active');
+            if (tabSignupBtn) tabSignupBtn.classList.remove('active');
+            if (loginForm) loginForm.style.display = 'block';
+            if (signupForm) signupForm.style.display = 'none';
+        } else {
+            if (tabSignupBtn) tabSignupBtn.classList.add('active');
+            if (tabLoginBtn) tabLoginBtn.classList.remove('active');
+            if (signupForm) signupForm.style.display = 'block';
+            if (loginForm) loginForm.style.display = 'none';
+        }
+    }
+
+    if (loginNavBtn) loginNavBtn.addEventListener('click', () => openModal('login'));
+    if (signupNavBtn) signupNavBtn.addEventListener('click', () => openModal('signup'));
+    if (mobileLoginBtn) mobileLoginBtn.addEventListener('click', () => openModal('login'));
+    if (mobileSignupBtn) mobileSignupBtn.addEventListener('click', () => openModal('signup'));
+    if (tabLoginBtn) tabLoginBtn.addEventListener('click', () => switchTab('login'));
+    if (tabSignupBtn) tabSignupBtn.addEventListener('click', () => switchTab('signup'));
     if (closeLoginModal && loginModal) {
         closeLoginModal.addEventListener('click', () => loginModal.classList.remove('active'));
+    }
+
+    if (signupForm) {
+        signupForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('signupName').value.trim();
+            const email = document.getElementById('signupEmail').value.trim();
+            const userObj = { name: name, email: email };
+            localStorage.setItem('currentUser', JSON.stringify(userObj));
+            updateAuthUI();
+            if (loginModal) loginModal.classList.remove('active');
+            if (typeof showToast === 'function') showToast(`Account created! Welcome, ${userObj.name}!`, 'fa-user-check');
+            
+            const emailAddr = document.getElementById('emailAddr');
+            if (emailAddr) emailAddr.value = email;
+            const fullName = document.getElementById('fullName');
+            if (fullName) fullName.value = name;
+        });
     }
 
     if (loginForm) {
@@ -188,11 +251,16 @@ document.addEventListener('DOMContentLoaded', () => {
             if (loginModal) loginModal.classList.remove('active');
             if (typeof showToast === 'function') showToast(`Welcome back, ${userObj.name}!`, 'fa-user-check');
             
-            // Auto fill checkout email if available
             const emailAddr = document.getElementById('emailAddr');
             if (emailAddr) emailAddr.value = email;
         });
     }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    updateCartCount();
+    loadCartDisplay();
+    updateAuthUI();
 
     // Checkout Order Button
     const checkoutBtn = document.getElementById('checkoutBtn');
@@ -208,7 +276,8 @@ document.addEventListener('DOMContentLoaded', () => {
             // Check Login
             const user = getCurrentUser();
             if (!user) {
-                if (typeof showToast === 'function') showToast('Please Login first to place your order!', 'fa-user-lock');
+                if (typeof showToast === 'function') showToast('Please Login or Sign Up first to place your order!', 'fa-user-lock');
+                const loginModal = document.getElementById('loginModal');
                 if (loginModal) loginModal.classList.add('active');
                 return;
             }
