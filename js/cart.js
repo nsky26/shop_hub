@@ -171,12 +171,6 @@ function updateAuthUI() {
     }
 }
 
-// Order Checkout Submission
-document.addEventListener('DOMContentLoaded', () => {
-    updateCartCount();
-    loadCartDisplay();
-    updateAuthUI();
-
 function bindAuthModalEvents() {
     const loginModal = document.getElementById('loginModal');
     const loginNavBtn = document.getElementById('loginNavBtn');
