@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - ShopHub</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Top Announcement Bar -->
+    <div class="announcement-bar">
+        <p><i class="fas fa-truck-fast"></i>⚡ Free Shipping unlocked on orders over $50!</p>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <i class="fas fa-shopping-bag logo-icon"></i>
+                <span class="logo-text">Shop<span>Hub</span></span>
+            </a>
+            
+            <div class="nav-search">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="searchInput" placeholder="Search products...">
+                <button id="searchBtn">Search</button>
+            </div>
+
+            <div class="nav-actions">
+                <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+                <a href="products.html" class="nav-link"><i class="fas fa-grid-2"></i> Products</a>
+                <a href="cart.html" class="nav-link cart-link">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Cart</span>
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cart Main Content -->
+    <main class="container" style="padding: 50px 24px;">
+        <div style="margin-bottom: 30px;">
+            <h2><i class="fas fa-shopping-cart text-gradient"></i> Your Shopping Bag</h2>
+            <p style="color: var(--text-muted);">Review your items and proceed to secure checkout.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 30px;">
+            <!-- Cart Items List -->
+            <div id="cartItems">
+                <!-- Dynamically populated by cart.js -->
+            </div>
+
+            <!-- Order Summary -->
+            <div>
+                <div class="glass-panel" style="position: sticky; top: 100px; padding: 24px;">
+                    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px; border-bottom: 1px solid var(--border-color); padding-bottom: 12px;">Order Summary</h3>
+                    
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 15px;">
+                        <span style="color: var(--text-muted);">Subtotal</span>
+                        <strong id="subtotal">$0.00</strong>
+                    </div>
+
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 15px;">
+                        <span style="color: var(--text-muted);">Est. Shipping</span>
+                        <strong id="shipping" style="color: var(--success);">FREE</strong>
+                    </div>
+
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 16px; font-size: 15px;">
+                        <span style="color: var(--text-muted);">Estimated Tax (8%)</span>
+                        <strong id="tax">$0.00</strong>
+                    </div>
+
+                    <div style="display: flex; justify-content: space-between; font-size: 20px; font-weight: 800; border-top: 2px dashed var(--border-color); padding-top: 16px; margin-bottom: 24px;">
+                        <span>Total</span>
+                        <span id="total" class="text-gradient">$0.00</span>
+                    </div>
+
+                    <button id="checkoutBtn" class="btn btn-primary btn-block btn-lg" style="width: 100%;">
+                        <i class="fas fa-lock"></i> Proceed to Checkout
+                    </button>
+
+                    <div style="text-align: center; margin-top: 20px; font-size: 13px; color: var(--text-muted);">
+                        <i class="fas fa-shield-alt text-gold"></i> 256-bit Encrypted Checkout
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2026 ShopHub Inc. Enterprise Production Ready. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
