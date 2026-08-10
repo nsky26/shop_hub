@@ -6,71 +6,86 @@
     <title>Shopping Cart & Checkout - ShopHub</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Announcement Bar -->
+    <!-- Top Announcement Bar -->
     <div class="announcement-bar">
-        <p><i class="fas fa-bolt"></i> ⚡ Free Express Shipping on orders over $50!</p>
+        <p><i class="fas fa-bolt"></i> ⚡ FREE Express Shipping on orders over $50!</p>
     </div>
 
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">
-                <i class="fas fa-shopping-bag logo-icon"></i>
-                <span class="logo-text">Shop<span>Hub</span></span>
-            </a>
-            
-            <div class="nav-search">
-                <i class="fas fa-search search-icon"></i>
-                <input type="text" id="searchInput" placeholder="Search products...">
-                <button id="searchBtn">Search</button>
-            </div>
-
-            <div class="nav-actions">
-                <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
-                <a href="products.html" class="nav-link"><i class="fas fa-grid-2"></i> Catalog</a>
-                <a href="cart.html" class="nav-link cart-link active">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span>Cart</span>
-                    <span class="cart-count" id="cartCount">0</span>
+    <!-- Mega Header Navigation Bar -->
+    <header class="navbar-wrapper">
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="nav-logo">
+                    <div class="logo-badge"><i class="fas fa-shopping-bag"></i></div>
+                    <span class="logo-text">Shop<span>Hub</span></span>
                 </a>
                 
-                <div class="auth-btn-group" id="authNavGroup">
-                    <button id="loginNavBtn" class="btn btn-outline-nav"><i class="fas fa-sign-in-alt"></i> Login</button>
-                    <button id="signupNavBtn" class="btn btn-primary-nav"><i class="fas fa-user-plus"></i> Sign Up</button>
+                <div class="nav-search">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="searchInput" placeholder="Search catalog...">
+                    <button id="searchBtn">Search</button>
                 </div>
-            </div>
-        </div>
-    </nav>
 
-    <!-- Cart & Checkout Main Content -->
-    <main class="container" style="padding: 60px 24px 100px;">
-        <div style="margin-bottom: 32px;">
-            <h1 style="font-size: 32px; font-weight: 900;"><i class="fas fa-shopping-bag text-gradient"></i> Checkout & Order Details</h1>
-            <p style="color: var(--text-muted);">Please review items and provide your delivery details below.</p>
-        </div>
-
-        <div style="display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px;">
-            <!-- Left Column: Cart Items & Delivery Address Form -->
-            <div>
-                <!-- Cart Items -->
-                <div style="margin-bottom: 40px;">
-                    <h3 style="font-size: 20px; font-weight: 800; margin-bottom: 20px;"><i class="fas fa-list"></i> Your Selected Items</h3>
-                    <div id="cartItems">
-                        <!-- Rendered by cart.js -->
+                <div class="nav-actions">
+                    <a href="index.html" class="nav-item"><i class="fas fa-home"></i> <span>Home</span></a>
+                    <a href="products.html" class="nav-item"><i class="fas fa-grid-2"></i> <span>Catalog</span></a>
+                    <a href="index.html#reviews" class="nav-item"><i class="fas fa-star text-gold"></i> <span>5.0 Ratings</span></a>
+                    
+                    <a href="cart.html" class="nav-item cart-btn active" id="cartNavBtn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Cart</span>
+                        <span class="cart-count-pill" id="cartCount">0</span>
+                    </a>
+                    
+                    <div class="auth-btn-group" id="authNavGroup">
+                        <button id="loginNavBtn" class="btn btn-login"><i class="fas fa-sign-in-alt"></i> Login</button>
+                        <button id="signupNavBtn" class="btn btn-signup"><i class="fas fa-user-plus"></i> Sign Up</button>
                     </div>
                 </div>
 
-                <!-- Shipping Address & Primary Contact Details Form -->
-                <div class="glass-panel" style="padding: 32px;">
-                    <h3 style="font-size: 20px; font-weight: 800; margin-bottom: 20px; border-bottom: 1px solid var(--border-color); padding-bottom: 12px;">
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+
+        <div class="category-header-bar">
+            <div class="container category-pills-wrapper">
+                <a href="products.html" class="cat-pill active"><i class="fas fa-layer-group"></i> All Products</a>
+                <a href="products.html?category=electronics" class="cat-pill"><i class="fas fa-laptop"></i> Electronics</a>
+                <a href="products.html?category=fashion" class="cat-pill"><i class="fas fa-tshirt"></i> Fashion</a>
+                <a href="products.html?category=home" class="cat-pill"><i class="fas fa-couch"></i> Home & Living</a>
+                <a href="products.html?category=books" class="cat-pill"><i class="fas fa-book"></i> Books & Media</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Cart & Checkout Content -->
+    <main class="container catalog-page-container">
+        <div style="margin-bottom: 32px;">
+            <h1 style="font-size: 32px; font-weight: 900;"><i class="fas fa-shopping-bag text-gradient"></i> Checkout & Order Details</h1>
+            <p style="color: var(--text-muted);">Please review your cart items and complete your delivery details below.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px;">
+            <div>
+                <div style="margin-bottom: 40px;">
+                    <h3 style="font-size: 20px; font-weight: 800; margin-bottom: 20px;"><i class="fas fa-list"></i> Your Selected Items</h3>
+                    <div id="cartItems">
+                        <!-- Dynamically populated by cart.js -->
+                    </div>
+                </div>
+
+                <div class="review-card" style="background: #ffffff; padding: 32px;">
+                    <h3 style="font-size: 20px; font-weight: 800; margin-bottom: 20px; border-bottom: 1px solid var(--border); padding-bottom: 12px;">
                         <i class="fas fa-map-marker-alt text-gradient"></i> Shipping & Contact Details
                     </h3>
                     
                     <form id="checkoutForm">
-                        <div class="form-row">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
                             <div class="form-group">
                                 <label for="fullName">Full Name *</label>
                                 <input type="text" id="fullName" placeholder="e.g. Jane Doe" required>
@@ -81,7 +96,7 @@
                             </div>
                         </div>
 
-                        <div class="form-row">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
                             <div class="form-group">
                                 <label for="phoneNum">Phone Number *</label>
                                 <input type="tel" id="phoneNum" placeholder="+1 (555) 000-0000" required>
@@ -97,14 +112,14 @@
                             <input type="text" id="streetAddr" placeholder="123 Shopping Blvd, Suite 400" required>
                         </div>
 
-                        <div class="form-row">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
                             <div class="form-group">
                                 <label for="zipCode">ZIP / Postal Code *</label>
                                 <input type="text" id="zipCode" placeholder="10001" required>
                             </div>
                             <div class="form-group">
                                 <label for="paymentMethod">Payment Method</label>
-                                <select id="paymentMethod">
+                                <select id="paymentMethod" class="custom-select" style="width: 100%; border-radius: 8px;">
                                     <option value="card">💳 Credit / Debit Card</option>
                                     <option value="paypal">🅿️ PayPal Express</option>
                                     <option value="cod">💵 Cash on Delivery</option>
@@ -115,10 +130,9 @@
                 </div>
             </div>
 
-            <!-- Right Column: Order Summary Card -->
             <div>
-                <div class="glass-panel" style="position: sticky; top: 110px; padding: 30px;">
-                    <h3 style="font-size: 22px; font-weight: 800; margin-bottom: 24px; border-bottom: 1px solid var(--border-color); padding-bottom: 14px;">Order Summary</h3>
+                <div class="review-card" style="background: #ffffff; position: sticky; top: 130px; padding: 30px;">
+                    <h3 style="font-size: 22px; font-weight: 800; margin-bottom: 24px; border-bottom: 1px solid var(--border); padding-bottom: 14px;">Order Summary</h3>
                     
                     <div style="display: flex; justify-content: space-between; margin-bottom: 14px; font-size: 15px;">
                         <span style="color: var(--text-muted);">Items Subtotal</span>
@@ -127,7 +141,7 @@
 
                     <div style="display: flex; justify-content: space-between; margin-bottom: 14px; font-size: 15px;">
                         <span style="color: var(--text-muted);">Express Shipping</span>
-                        <strong id="shipping" style="color: var(--success); font-size: 16px;">FREE</strong>
+                        <strong id="shipping" style="color: #10b981; font-size: 16px;">FREE</strong>
                     </div>
 
                     <div style="display: flex; justify-content: space-between; margin-bottom: 20px; font-size: 15px;">
@@ -135,12 +149,12 @@
                         <strong id="tax" style="font-size: 16px;">$0.00</strong>
                     </div>
 
-                    <div style="display: flex; justify-content: space-between; font-size: 22px; font-weight: 900; border-top: 2px dashed var(--border-color); padding-top: 20px; margin-bottom: 28px;">
+                    <div style="display: flex; justify-content: space-between; font-size: 22px; font-weight: 900; border-top: 2px dashed var(--border); padding-top: 20px; margin-bottom: 28px;">
                         <span>Total Payable</span>
                         <span id="total" class="text-gradient">$0.00</span>
                     </div>
 
-                    <button id="checkoutBtn" class="btn btn-primary btn-block btn-lg">
+                    <button id="checkoutBtn" class="btn btn-hero-primary" style="width: 100%;">
                         <i class="fas fa-check-circle"></i> Place Order & Pay
                     </button>
 
@@ -159,7 +173,7 @@
         </div>
     </footer>
 
-    <!-- Auth Modal (Login / Sign Up) -->
+    <!-- Auth Modal -->
     <div class="modal-overlay" id="loginModal">
         <div class="modal-box">
             <div class="modal-header">
@@ -170,7 +184,6 @@
                 <button class="modal-close" id="closeLoginModal">&times;</button>
             </div>
 
-            <!-- Login Form -->
             <form id="loginForm">
                 <div class="form-group">
                     <label for="userEmail"><i class="fas fa-envelope"></i> Email Address</label>
@@ -183,7 +196,6 @@
                 <button type="submit" class="btn btn-primary btn-block btn-lg"><i class="fas fa-sign-in-alt"></i> Sign In</button>
             </form>
 
-            <!-- Sign Up Form -->
             <form id="signupForm" style="display: none;">
                 <div class="form-group">
                     <label for="signupName"><i class="fas fa-user"></i> Full Name</label>
@@ -202,7 +214,6 @@
         </div>
     </div>
 
-    <!-- Toast Notification Container -->
     <div id="toastContainer" class="toast-container"></div>
 
     <script src="js/products.js"></script>

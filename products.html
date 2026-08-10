@@ -3,102 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products - ShopHub</title>
+    <title>Shopping Catalog - ShopHub</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <a href="index.html"><i class="fas fa-shopping-bag"></i> ShopHub</a>
-            </div>
-            <div class="nav-search">
-                <input type="text" id="searchInput" placeholder="Search for products, brands and more...">
-                <button id="searchBtn"><i class="fas fa-search"></i></button>
-            </div>
-            <div class="nav-items">
-                <a href="#" class="nav-link"><i class="fas fa-user"></i> Login</a>
-                <a href="cart.html" class="nav-link cart-link">
-                    <i class="fas fa-shopping-cart"></i> Cart
-                    <span class="cart-count" id="cartCount">0</span>
-                </a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Products Page -->
-    <div class="products-page">
-        <div class="container">
-            <div class="products-header">
-                <h1>All Products</h1>
-                <div class="filter-controls">
-                    <select id="categoryFilter">
-                        <option value="all">All Categories</option>
-                        <option value="electronics">Electronics</option>
-                        <option value="fashion">Fashion</option>
-                        <option value="home">Home & Living</option>
-                        <option value="books">Books</option>
-                    </select>
-                    <select id="sortFilter">
-                        <option value="default">Sort By</option>
-                        <option value="price-low">Price: Low to High</option>
-                        <option value="price-high">Price: High to Low</option>
-                        <option value="rating">Rating</option>
-                    </select>
-                </div>
-            </div>
-            <div class="products-grid" id="productsGrid">
-                <!-- Products will be loaded dynamically -->
-            </div>
-        </div>
+    <!-- Top Announcement Bar -->
+    <div class="announcement-bar">
+        <p><i class="fas fa-bolt"></i> ⚡ FREE Express Shipping on orders over $50!</p>
     </div>
+
+    <!-- Mega Header Navigation Bar -->
+    <header class="navbar-wrapper">
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="nav-logo">
+                    <div class="logo-badge"><i class="fas fa-shopping-bag"></i></div>
+                    <span class="logo-text">Shop<span>Hub</span></span>
+                </a>
+                
+                <div class="nav-search">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="searchInput" placeholder="Search catalog...">
+                    <button id="searchBtn">Search</button>
+                </div>
+
+                <div class="nav-actions">
+                    <a href="index.html" class="nav-item"><i class="fas fa-home"></i> <span>Home</span></a>
+                    <a href="products.html" class="nav-item active"><i class="fas fa-grid-2"></i> <span>Catalog</span></a>
+                    <a href="index.html#reviews" class="nav-item"><i class="fas fa-star text-gold"></i> <span>5.0 Ratings</span></a>
+                    
+                    <a href="cart.html" class="nav-item cart-btn" id="cartNavBtn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Cart</span>
+                        <span class="cart-count-pill" id="cartCount">0</span>
+                    </a>
+                    
+                    <div class="auth-btn-group" id="authNavGroup">
+                        <button id="loginNavBtn" class="btn btn-login"><i class="fas fa-sign-in-alt"></i> Login</button>
+                        <button id="signupNavBtn" class="btn btn-signup"><i class="fas fa-user-plus"></i> Sign Up</button>
+                    </div>
+                </div>
+
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Category Pills Bar in Header -->
+        <div class="category-header-bar">
+            <div class="container category-pills-wrapper">
+                <a href="products.html" class="cat-pill active"><i class="fas fa-layer-group"></i> All Products</a>
+                <a href="products.html?category=electronics" class="cat-pill"><i class="fas fa-laptop"></i> Electronics</a>
+                <a href="products.html?category=fashion" class="cat-pill"><i class="fas fa-tshirt"></i> Fashion</a>
+                <a href="products.html?category=home" class="cat-pill"><i class="fas fa-couch"></i> Home & Living</a>
+                <a href="products.html?category=books" class="cat-pill"><i class="fas fa-book"></i> Books & Media</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Products Page Content -->
+    <main class="container catalog-page-container">
+        <div class="catalog-header-bar">
+            <div>
+                <h1>Product Catalog</h1>
+                <p>Browse our complete 5.0★ verified collection of premium items.</p>
+            </div>
+            
+            <div class="filter-controls">
+                <select id="categoryFilter" class="custom-select">
+                    <option value="all">All Categories</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="fashion">Fashion</option>
+                    <option value="home">Home & Living</option>
+                    <option value="books">Books & Media</option>
+                </select>
+
+                <select id="sortFilter" class="custom-select">
+                    <option value="default">Sort By: Featured</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="rating">Highest Rated</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="products-grid" id="productsGrid">
+            <!-- Dynamically populated -->
+        </div>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h4>About</h4>
-                    <ul>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Press</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Help</h4>
-                    <ul>
-                        <li><a href="#">Customer Support</a></li>
-                        <li><a href="#">Shipping Info</a></li>
-                        <li><a href="#">Returns</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Contact</h4>
-                    <ul>
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Feedback</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Legal</h4>
-                    <ul>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Cookie Policy</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 ShopHub. All rights reserved.</p>
-            </div>
+        <div class="container text-center">
+            <p>&copy; 2026 ShopHub Inc. Enterprise Production Ready. All rights reserved.</p>
         </div>
     </footer>
 
+    <!-- Auth Modal (Login / Sign Up) -->
+    <div class="modal-overlay" id="loginModal">
+        <div class="modal-box">
+            <div class="modal-header">
+                <div class="auth-tabs">
+                    <button class="auth-tab active" id="tabLoginBtn"><i class="fas fa-sign-in-alt"></i> Login</button>
+                    <button class="auth-tab" id="tabSignupBtn"><i class="fas fa-user-plus"></i> Sign Up</button>
+                </div>
+                <button class="modal-close" id="closeLoginModal">&times;</button>
+            </div>
+
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="userEmail"><i class="fas fa-envelope"></i> Email Address</label>
+                    <input type="email" id="userEmail" placeholder="name@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="userPass"><i class="fas fa-lock"></i> Password</label>
+                    <input type="password" id="userPass" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block btn-lg"><i class="fas fa-sign-in-alt"></i> Sign In</button>
+            </form>
+
+            <form id="signupForm" style="display: none;">
+                <div class="form-group">
+                    <label for="signupName"><i class="fas fa-user"></i> Full Name</label>
+                    <input type="text" id="signupName" placeholder="John Doe" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail"><i class="fas fa-envelope"></i> Email Address</label>
+                    <input type="email" id="signupEmail" placeholder="john@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPass"><i class="fas fa-lock"></i> Create Password</label>
+                    <input type="password" id="signupPass" placeholder="At least 6 characters" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block btn-lg"><i class="fas fa-user-plus"></i> Create Account</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="toastContainer" class="toast-container"></div>
+
     <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>

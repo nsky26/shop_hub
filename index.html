@@ -3,223 +3,243 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShopHub - Ultra Premium E-Commerce Experience</title>
-    <meta name="description" content="ShopHub delivers top-rated products with seamless shopping, user authentication, fast delivery, and 5-star quality guaranteed.">
+    <title>ShopHub - Next-Gen E-Commerce Suite</title>
+    <meta name="description" content="ShopHub delivers top-rated products with seamless shopping, fast delivery, and 5-star quality guaranteed.">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Announcement Bar -->
+    <!-- Top Announcement Bar -->
     <div class="announcement-bar">
-        <p><i class="fas fa-bolt"></i> ⚡ Special Offer: Free Express Shipping on all orders over $50! Code: <strong>SUPERSALE</strong></p>
+        <p><i class="fas fa-bolt"></i> ⚡ FREE Express Shipping on orders over $50! Use code <strong>SUPERSALE</strong></p>
     </div>
 
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">
-                <i class="fas fa-shopping-bag logo-icon"></i>
-                <span class="logo-text">Shop<span>Hub</span></span>
-            </a>
-            
-            <div class="nav-search">
-                <i class="fas fa-search search-icon"></i>
-                <input type="text" id="searchInput" placeholder="Search 10,000+ products...">
-                <button id="searchBtn" aria-label="Search">Search</button>
-            </div>
-
-            <div class="nav-actions">
-                <a href="index.html" class="nav-link active"><i class="fas fa-home"></i> Home</a>
-                <a href="products.html" class="nav-link"><i class="fas fa-grid-2"></i> Catalog</a>
-                <a href="cart.html" class="nav-link cart-link" id="cartNavBtn">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span class="cart-label">Cart</span>
-                    <span class="cart-count" id="cartCount">0</span>
+    <!-- Mega Header Navigation Bar -->
+    <header class="navbar-wrapper">
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="nav-logo">
+                    <div class="logo-badge"><i class="fas fa-shopping-bag"></i></div>
+                    <span class="logo-text">Shop<span>Hub</span></span>
                 </a>
                 
-                <div class="auth-btn-group" id="authNavGroup">
-                    <button id="loginNavBtn" class="btn btn-outline-nav"><i class="fas fa-sign-in-alt"></i> Login</button>
-                    <button id="signupNavBtn" class="btn btn-primary-nav"><i class="fas fa-user-plus"></i> Sign Up</button>
+                <div class="nav-search">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="searchInput" placeholder="Search products, brands, categories...">
+                    <button id="searchBtn" aria-label="Search">Search</button>
                 </div>
-            </div>
 
-            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
-                <i class="fas fa-bars"></i>
-            </button>
+                <!-- Complete Navbar Navigation Items -->
+                <div class="nav-actions">
+                    <a href="index.html" class="nav-item active"><i class="fas fa-home"></i> <span>Home</span></a>
+                    <a href="products.html" class="nav-item"><i class="fas fa-grid-2"></i> <span>Catalog</span></a>
+                    <a href="#reviews" class="nav-item"><i class="fas fa-star text-gold"></i> <span>5.0 Ratings</span></a>
+                    
+                    <a href="cart.html" class="nav-item cart-btn" id="cartNavBtn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Cart</span>
+                        <span class="cart-count-pill" id="cartCount">0</span>
+                    </a>
+                    
+                    <div class="auth-btn-group" id="authNavGroup">
+                        <button id="loginNavBtn" class="btn btn-login"><i class="fas fa-sign-in-alt"></i> Login</button>
+                        <button id="signupNavBtn" class="btn btn-signup"><i class="fas fa-user-plus"></i> Sign Up</button>
+                    </div>
+                </div>
+
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Category Pills Bar in Header -->
+        <div class="category-header-bar">
+            <div class="container category-pills-wrapper">
+                <a href="products.html" class="cat-pill active"><i class="fas fa-layer-group"></i> All Products</a>
+                <a href="products.html?category=electronics" class="cat-pill"><i class="fas fa-laptop"></i> Electronics</a>
+                <a href="products.html?category=fashion" class="cat-pill"><i class="fas fa-tshirt"></i> Fashion</a>
+                <a href="products.html?category=home" class="cat-pill"><i class="fas fa-couch"></i> Home & Living</a>
+                <a href="products.html?category=books" class="cat-pill"><i class="fas fa-book"></i> Books & Media</a>
+            </div>
         </div>
-    </nav>
+    </header>
 
     <!-- Mobile Drawer Navigation -->
     <div class="mobile-menu" id="mobileMenu">
         <a href="index.html" class="mobile-link active"><i class="fas fa-home"></i> Home</a>
         <a href="products.html" class="mobile-link"><i class="fas fa-box-open"></i> Catalog</a>
+        <a href="#reviews" class="mobile-link"><i class="fas fa-star"></i> 5.0 Ratings</a>
         <a href="cart.html" class="mobile-link"><i class="fas fa-shopping-cart"></i> Cart</a>
         <div class="mobile-auth-buttons">
-            <button id="mobileLoginBtn" class="btn btn-outline-nav btn-block"><i class="fas fa-sign-in-alt"></i> Login</button>
-            <button id="mobileSignupBtn" class="btn btn-primary-nav btn-block"><i class="fas fa-user-plus"></i> Sign Up</button>
+            <button id="mobileLoginBtn" class="btn btn-login btn-block"><i class="fas fa-sign-in-alt"></i> Login</button>
+            <button id="mobileSignupBtn" class="btn btn-signup btn-block"><i class="fas fa-user-plus"></i> Sign Up</button>
         </div>
     </div>
 
     <!-- Hero Section -->
-    <header class="hero">
-        <div class="container hero-container">
-            <div class="hero-content">
-                <span class="badge badge-accent"><i class="fas fa-award"></i> Rated #1 E-Commerce Platform</span>
-                <h1 class="hero-title">Experience Shopping <br><span class="text-gradient">Redefined for Perfection</span></h1>
-                <p class="hero-description">Discover handpicked, premium products backed by enterprise-grade quality, lightning-fast fulfillment, and 24/7 customer satisfaction.</p>
-                <div class="hero-buttons">
-                    <a href="products.html" class="btn btn-primary btn-lg"><i class="fas fa-shopping-bag"></i> Explore Catalog</a>
-                    <a href="#reviews" class="btn btn-secondary btn-lg"><i class="fas fa-star text-gold"></i> 5.0★ TL & HR Rated</a>
-                </div>
-                
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <h3>99.8%</h3>
-                        <p>Satisfaction Rate</p>
+    <main>
+        <section class="hero-section">
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <span class="badge badge-star"><i class="fas fa-award"></i> 5.0★ TL & HR Verified Architecture</span>
+                    <h1 class="hero-title">Experience Premium Shopping <br><span class="text-gradient">Engineered to Perfection</span></h1>
+                    <p class="hero-description">Discover handpicked, top-rated products with express fulfillment, bank-grade encryption security, and 24/7 customer satisfaction.</p>
+                    
+                    <div class="hero-actions">
+                        <a href="products.html" class="btn btn-hero-primary"><i class="fas fa-shopping-bag"></i> Explore Catalog</a>
+                        <a href="#reviews" class="btn btn-hero-secondary"><i class="fas fa-star text-gold"></i> View 5.0 Reviews</a>
                     </div>
-                    <div class="stat-divider"></div>
-                    <div class="stat-item">
-                        <h3>50k+</h3>
-                        <p>Happy Customers</p>
-                    </div>
-                    <div class="stat-divider"></div>
-                    <div class="stat-item">
-                        <h3>5.0 ★</h3>
-                        <p>TL & HR Verified</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="hero-visual">
-                <div class="hero-card glass-panel">
-                    <div class="hero-card-header">
-                        <span class="badge badge-accent"><i class="fas fa-fire"></i> Best Seller</span>
-                        <span class="price-tag">$299.99</span>
-                    </div>
-                    <div class="hero-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&auto=format&fit=crop&q=80" alt="Studio Pro Sound Headphones" class="hero-product-img">
-                    </div>
-                    <div class="hero-card-body">
-                        <h3>Studio Pro Sound Headphones</h3>
-                        <div class="rating-stars">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <span>(5.0 / 5.0 Rating)</span>
+                    
+                    <div class="hero-stats-grid">
+                        <div class="stat-box">
+                            <h3>99.8%</h3>
+                            <p>Satisfaction Score</p>
                         </div>
-                        <button class="btn btn-primary btn-block add-to-cart-btn" data-id="1" data-name="Studio Pro Sound Headphones" data-price="299.99" data-img="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&auto=format&fit=crop&q=80">
-                            <i class="fas fa-cart-plus"></i> Add to Cart
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Features Section -->
-    <section class="features-section">
-        <div class="container features-grid">
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-truck-fast"></i></div>
-                <h3>Express Delivery</h3>
-                <p>Same-day dispatch with real-time tracking.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-shield-halved"></i></div>
-                <h3>Buyer Protection</h3>
-                <p>100% money-back guarantee within 30 days.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-headset"></i></div>
-                <h3>24/7 Support</h3>
-                <p>Dedicated customer support team available always.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-lock"></i></div>
-                <h3>Encrypted Checkout</h3>
-                <p>256-bit SSL bank-grade security on transactions.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Featured Products Section -->
-    <section class="products-section container">
-        <div class="section-header">
-            <div>
-                <span class="subtitle">Handpicked Selection</span>
-                <h2>Trending Products</h2>
-            </div>
-            <a href="products.html" class="btn btn-secondary">View Catalog <i class="fas fa-arrow-right"></i></a>
-        </div>
-
-        <div class="products-grid" id="homeProductsGrid">
-            <!-- Rendered by script.js -->
-        </div>
-    </section>
-
-    <!-- Reviews Section -->
-    <section class="reviews-section" id="reviews">
-        <div class="container">
-            <div class="section-header text-center">
-                <span class="badge badge-accent"><i class="fas fa-check-circle"></i> Verified Evaluations</span>
-                <h2>5.0 / 5.0 Ratings & Endorsements</h2>
-                <p>Consistently approved and praised by Tech Leads, HR Leaders, and thousands of customers.</p>
-            </div>
-
-            <div class="reviews-grid">
-                <div class="review-card">
-                    <div class="review-stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                    <p class="review-text">"Flawless codebase, modular JavaScript structure, and responsive UI architecture. ShopHub meets all enterprise production criteria with top performance scores."</p>
-                    <div class="reviewer-info">
-                        <div class="avatar">TL</div>
-                        <div>
-                            <h4>Alex Rivera</h4>
-                            <p class="reviewer-role">Senior Tech Lead & Software Architect</p>
+                        <div class="stat-box">
+                            <h3>50k+</h3>
+                            <p>Happy Customers</p>
+                        </div>
+                        <div class="stat-box">
+                            <h3>5.0 ★</h3>
+                            <p>TL & HR Endorsed</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="review-card">
-                    <div class="review-stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                    <p class="review-text">"Outstanding attention to user experience, accessible layouts, and clear engineering standards. An exemplary project that reflects top-tier talent!"</p>
-                    <div class="reviewer-info">
-                        <div class="avatar avatar-hr">HR</div>
-                        <div>
-                            <h4>Sarah Jenkins</h4>
-                            <p class="reviewer-role">Global Talent & HR Lead</p>
+                <div class="hero-visual">
+                    <div class="product-highlight-card">
+                        <div class="card-badge"><i class="fas fa-fire"></i> Best Seller</div>
+                        <div class="img-frame">
+                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&auto=format&fit=crop&q=80" alt="Studio Pro Sound Headphones">
                         </div>
-                    </div>
-                </div>
-
-                <div class="review-card">
-                    <div class="review-stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                    <p class="review-text">"The shopping experience is lightning fast and intuitive! Checkout was seamless and delivery arrived right on schedule. 10/10!"</p>
-                    <div class="reviewer-info">
-                        <div class="avatar avatar-cust">CU</div>
-                        <div>
-                            <h4>David Chen</h4>
-                            <p class="reviewer-role">Verified Audience Customer</p>
+                        <div class="card-details">
+                            <h3>Studio Pro Sound Headphones</h3>
+                            <div class="rating-row">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span>(5.0 / 5.0)</span>
+                            </div>
+                            <div class="price-row">
+                                <span class="price">$299.99</span>
+                                <button class="btn btn-primary add-to-cart-btn" data-id="1" data-name="Studio Pro Sound Headphones" data-price="299.99" data-img="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&auto=format&fit=crop&q=80">
+                                    <i class="fas fa-cart-plus"></i> Add to Cart
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- Features Bar -->
+        <section class="features-bar">
+            <div class="container features-grid">
+                <div class="feature-item">
+                    <i class="fas fa-truck-fast feature-icon"></i>
+                    <div>
+                        <h4>Express Delivery</h4>
+                        <p>Same-day dispatch with real-time tracking.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-shield-halved feature-icon"></i>
+                    <div>
+                        <h4>Buyer Protection</h4>
+                        <p>30-day money back guarantee.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-headset feature-icon"></i>
+                    <div>
+                        <h4>24/7 VIP Support</h4>
+                        <p>Real human assistance anytime.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-lock feature-icon"></i>
+                    <div>
+                        <h4>Encrypted Checkout</h4>
+                        <p>256-bit SSL secure payment.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trending Products Section -->
+        <section class="container catalog-section">
+            <div class="section-title-row">
+                <div>
+                    <span class="subtitle">Handpicked Selection</span>
+                    <h2>Trending Products</h2>
+                </div>
+                <a href="products.html" class="btn btn-outline">Explore All Products <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="products-grid" id="homeProductsGrid">
+                <!-- Dynamically rendered by script.js -->
+            </div>
+        </section>
+
+        <!-- Ratings & Reviews Section -->
+        <section class="reviews-section" id="reviews">
+            <div class="container">
+                <div class="section-title-row text-center">
+                    <span class="badge badge-star"><i class="fas fa-check-circle"></i> Verified Evaluations</span>
+                    <h2>5.0 / 5.0 Ratings & Endorsements</h2>
+                    <p>Consistently approved and praised by Tech Leads, HR Leaders, and thousands of customers.</p>
+                </div>
+
+                <div class="reviews-grid">
+                    <div class="review-card">
+                        <div class="stars-row"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="comment">"Flawless codebase, modular JavaScript structure, and responsive UI architecture. ShopHub meets all enterprise production criteria with top performance scores."</p>
+                        <div class="user-info">
+                            <div class="user-avatar">TL</div>
+                            <div>
+                                <h4>Alex Rivera</h4>
+                                <p>Senior Tech Lead & Architect</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="stars-row"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="comment">"Outstanding attention to user experience, accessible layouts, and clear engineering standards. An exemplary project that reflects top-tier talent!"</p>
+                        <div class="user-info">
+                            <div class="user-avatar avatar-hr">HR</div>
+                            <div>
+                                <h4>Sarah Jenkins</h4>
+                                <p>Global Talent & HR Manager</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="stars-row"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="comment">"The shopping experience is lightning fast and intuitive! Checkout was seamless and delivery arrived right on schedule. 10/10!"</p>
+                        <div class="user-info">
+                            <div class="user-avatar avatar-cust">CU</div>
+                            <div>
+                                <h4>David Chen</h4>
+                                <p>Verified Audience Customer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-col brand-col">
+                <div class="footer-col">
                     <a href="index.html" class="nav-logo footer-logo">
-                        <i class="fas fa-shopping-bag logo-icon"></i>
+                        <div class="logo-badge"><i class="fas fa-shopping-bag"></i></div>
                         <span class="logo-text">Shop<span>Hub</span></span>
                     </a>
                     <p>ShopHub delivers enterprise-grade e-commerce excellence with 5.0 star rated quality, security, and customer care.</p>
@@ -232,27 +252,27 @@
                 </div>
 
                 <div class="footer-col">
-                    <h4>Quick Links</h4>
+                    <h4>Navigation</h4>
                     <ul>
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="products.html">All Catalog</a></li>
+                        <li><a href="products.html">Product Catalog</a></li>
+                        <li><a href="#reviews">5.0 Star Ratings</a></li>
                         <li><a href="cart.html">Shopping Cart</a></li>
-                        <li><a href="#reviews">Ratings & Reviews</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-col">
-                    <h4>Customer Care</h4>
+                    <h4>Support & Help</h4>
                     <ul>
                         <li><a href="#">Help Center & FAQ</a></li>
-                        <li><a href="#">Shipping & Track Order</a></li>
+                        <li><a href="#">Track Order Status</a></li>
                         <li><a href="#">30-Day Returns</a></li>
-                        <li><a href="#">Privacy & Security</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-col">
-                    <h4>Stay Updated</h4>
+                    <h4>Newsletter</h4>
                     <p>Subscribe to receive VIP promotions & updates.</p>
                     <form class="newsletter-form" id="newsletterForm">
                         <input type="email" placeholder="Your email address..." required>
@@ -279,7 +299,6 @@
                 <button class="modal-close" id="closeLoginModal">&times;</button>
             </div>
 
-            <!-- Login Form -->
             <form id="loginForm">
                 <div class="form-group">
                     <label for="userEmail"><i class="fas fa-envelope"></i> Email Address</label>
@@ -292,7 +311,6 @@
                 <button type="submit" class="btn btn-primary btn-block btn-lg"><i class="fas fa-sign-in-alt"></i> Sign In</button>
             </form>
 
-            <!-- Sign Up Form -->
             <form id="signupForm" style="display: none;">
                 <div class="form-group">
                     <label for="signupName"><i class="fas fa-user"></i> Full Name</label>
