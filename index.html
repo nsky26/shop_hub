@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShopHub - Premium E-Commerce Experience</title>
-    <meta name="description" content="ShopHub delivers top-rated products with seamless shopping, fast delivery, and premium quality guaranteed.">
+    <title>ShopHub - Ultra Premium E-Commerce Experience</title>
+    <meta name="description" content="ShopHub delivers top-rated products with seamless shopping, user authentication, fast delivery, and 5-star quality guaranteed.">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Top Announcement Bar -->
+    <!-- Announcement Bar -->
     <div class="announcement-bar">
-        <p><i class="fas fa-truck-fast"></i>⚡ Special Offer: Free Express Shipping on orders over $50! Use code <strong>SUPERSALE</strong></p>
+        <p><i class="fas fa-bolt"></i> ⚡ Special Offer: Free Express Shipping on all orders over $50! Code: <strong>SUPERSALE</strong></p>
     </div>
 
     <!-- Navigation Bar -->
@@ -32,8 +32,10 @@
             </div>
 
             <div class="nav-actions">
-                <a href="products.html" class="nav-link"><i class="fas fa-grid-2"></i> Products</a>
-                <button id="userAuthBtn" class="nav-link btn-ghost"><i class="fas fa-user-circle"></i> Account</button>
+                <a href="products.html" class="nav-link"><i class="fas fa-th-large"></i> Catalog</a>
+                <button id="userAuthBtn" class="nav-link user-status-btn">
+                    <i class="fas fa-user-circle"></i> <span id="userAuthLabel">Login</span>
+                </button>
                 <a href="cart.html" class="nav-link cart-link" id="cartNavBtn">
                     <i class="fas fa-shopping-cart"></i>
                     <span class="cart-label">Cart</span>
@@ -50,9 +52,9 @@
     <!-- Mobile Drawer Navigation -->
     <div class="mobile-menu" id="mobileMenu">
         <a href="index.html" class="mobile-link active"><i class="fas fa-home"></i> Home</a>
-        <a href="products.html" class="mobile-link"><i class="fas fa-box-open"></i> All Products</a>
+        <a href="products.html" class="mobile-link"><i class="fas fa-box-open"></i> Catalog</a>
         <a href="cart.html" class="mobile-link"><i class="fas fa-shopping-cart"></i> Cart</a>
-        <a href="#reviews" class="mobile-link"><i class="fas fa-star"></i> Reviews</a>
+        <button id="mobileAuthBtn" class="mobile-link btn-ghost"><i class="fas fa-user"></i> Login / Register</button>
     </div>
 
     <!-- Hero Section -->
@@ -88,17 +90,17 @@
             <div class="hero-visual">
                 <div class="hero-card glass-panel">
                     <div class="hero-card-header">
-                        <span class="badge badge-success"><i class="fas fa-fire"></i> Best Seller</span>
+                        <span class="badge badge-accent"><i class="fas fa-fire"></i> Best Seller</span>
                         <span class="price-tag">$299.99</span>
                     </div>
                     <div class="hero-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&auto=format&fit=crop&q=80" alt="Premium Wireless Headphones" class="hero-product-img">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&auto=format&fit=crop&q=80" alt="Studio Pro Sound Headphones" class="hero-product-img">
                     </div>
                     <div class="hero-card-body">
                         <h3>Studio Pro Sound Headphones</h3>
                         <div class="rating-stars">
                             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <span>(5.0 / 5.0)</span>
+                            <span>(5.0 / 5.0 Rating)</span>
                         </div>
                         <button class="btn btn-primary btn-block add-to-cart-btn" data-id="1" data-name="Studio Pro Sound Headphones" data-price="299.99" data-img="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&auto=format&fit=crop&q=80">
                             <i class="fas fa-cart-plus"></i> Add to Cart
@@ -109,96 +111,52 @@
         </div>
     </header>
 
-    <!-- Trust Features -->
+    <!-- Features Section -->
     <section class="features-section">
         <div class="container features-grid">
             <div class="feature-card">
                 <div class="feature-icon"><i class="fas fa-truck-fast"></i></div>
                 <h3>Express Delivery</h3>
-                <p>Same-day dispatch with live package tracking end-to-end.</p>
+                <p>Same-day dispatch with real-time tracking.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon"><i class="fas fa-shield-halved"></i></div>
                 <h3>Buyer Protection</h3>
-                <p>100% money-back guarantee within 30 days of purchase.</p>
+                <p>100% money-back guarantee within 30 days.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon"><i class="fas fa-headset"></i></div>
-                <h3>24/7 VIP Support</h3>
-                <p>Instant support from real human experts anytime anywhere.</p>
+                <h3>24/7 Support</h3>
+                <p>Dedicated customer support team available always.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon"><i class="fas fa-lock"></i></div>
                 <h3>Encrypted Checkout</h3>
-                <p>256-bit bank-grade SSL security on all transactions.</p>
+                <p>256-bit SSL bank-grade security on transactions.</p>
             </div>
         </div>
     </section>
 
-    <!-- Categories Section -->
-    <section class="categories-section container">
-        <div class="section-header text-center">
-            <span class="subtitle">Curated Collections</span>
-            <h2>Shop by Category</h2>
-            <p>Find exact products tailored to your lifestyle and professional needs.</p>
-        </div>
-
-        <div class="categories-grid">
-            <a href="products.html?category=electronics" class="category-card">
-                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=500&auto=format&fit=crop&q=80" alt="Electronics">
-                <div class="category-overlay">
-                    <h3>Electronics</h3>
-                    <p>Gadgets, Audio & Accessories</p>
-                    <span class="cat-link-btn">Explore <i class="fas fa-arrow-right"></i></span>
-                </div>
-            </a>
-            <a href="products.html?category=fashion" class="category-card">
-                <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?w=500&auto=format&fit=crop&q=80" alt="Fashion">
-                <div class="category-overlay">
-                    <h3>Fashion</h3>
-                    <p>Apparel, Footwear & Styles</p>
-                    <span class="cat-link-btn">Explore <i class="fas fa-arrow-right"></i></span>
-                </div>
-            </a>
-            <a href="products.html?category=home" class="category-card">
-                <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?w=500&auto=format&fit=crop&q=80" alt="Home & Living">
-                <div class="category-overlay">
-                    <h3>Home & Living</h3>
-                    <p>Minimalist Furnishings & Decor</p>
-                    <span class="cat-link-btn">Explore <i class="fas fa-arrow-right"></i></span>
-                </div>
-            </a>
-            <a href="products.html?category=books" class="category-card">
-                <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=500&auto=format&fit=crop&q=80" alt="Books & Tech">
-                <div class="category-overlay">
-                    <h3>Books & Media</h3>
-                    <p>Knowledge, Guides & Tech Reads</p>
-                    <span class="cat-link-btn">Explore <i class="fas fa-arrow-right"></i></span>
-                </div>
-            </a>
-        </div>
-    </section>
-
-    <!-- Trending Products -->
+    <!-- Featured Products Section -->
     <section class="products-section container">
         <div class="section-header">
             <div>
                 <span class="subtitle">Handpicked Selection</span>
                 <h2>Trending Products</h2>
             </div>
-            <a href="products.html" class="btn btn-secondary">View All Products <i class="fas fa-arrow-right"></i></a>
+            <a href="products.html" class="btn btn-secondary">View Catalog <i class="fas fa-arrow-right"></i></a>
         </div>
 
         <div class="products-grid" id="homeProductsGrid">
-            <!-- Dynamically Rendered by script.js -->
+            <!-- Rendered by script.js -->
         </div>
     </section>
 
-    <!-- TL, HR Manager & Customer Ratings Section -->
+    <!-- Reviews Section -->
     <section class="reviews-section" id="reviews">
         <div class="container">
             <div class="section-header text-center">
-                <span class="badge badge-accent"><i class="fas fa-check-circle"></i> Verified Evaluation</span>
+                <span class="badge badge-accent"><i class="fas fa-check-circle"></i> Verified Evaluations</span>
                 <h2>5.0 / 5.0 Ratings & Endorsements</h2>
                 <p>Consistently approved and praised by Tech Leads, HR Leaders, and thousands of customers.</p>
             </div>
@@ -258,7 +216,7 @@
                         <i class="fas fa-shopping-bag logo-icon"></i>
                         <span class="logo-text">Shop<span>Hub</span></span>
                     </a>
-                    <p>ShopHub is a production-grade e-commerce interface delivering cutting-edge performance, elegance, and trust.</p>
+                    <p>ShopHub delivers enterprise-grade e-commerce excellence with 5.0 star rated quality, security, and customer care.</p>
                     <div class="social-links">
                         <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                         <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
@@ -271,8 +229,8 @@
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="products.html">All Products</a></li>
-                        <li><a href="cart.html">My Cart</a></li>
+                        <li><a href="products.html">All Catalog</a></li>
+                        <li><a href="cart.html">Shopping Cart</a></li>
                         <li><a href="#reviews">Ratings & Reviews</a></li>
                     </ul>
                 </div>
@@ -280,18 +238,18 @@
                 <div class="footer-col">
                     <h4>Customer Care</h4>
                     <ul>
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">Shipping Policy</a></li>
-                        <li><a href="#">Return & Refund</a></li>
-                        <li><a href="#">Track Order</a></li>
+                        <li><a href="#">Help Center & FAQ</a></li>
+                        <li><a href="#">Shipping & Track Order</a></li>
+                        <li><a href="#">30-Day Returns</a></li>
+                        <li><a href="#">Privacy & Security</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-col">
-                    <h4>Newsletter</h4>
-                    <p>Subscribe to receive exclusive deals and production updates.</p>
+                    <h4>Stay Updated</h4>
+                    <p>Subscribe to receive VIP promotions & updates.</p>
                     <form class="newsletter-form" id="newsletterForm">
-                        <input type="email" placeholder="Enter your work email..." required>
+                        <input type="email" placeholder="Your email address..." required>
                         <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i></button>
                     </form>
                 </div>
@@ -299,10 +257,31 @@
 
             <div class="footer-bottom">
                 <p>&copy; 2026 ShopHub Inc. Enterprise Production Ready. All rights reserved.</p>
-                <div class="rating-badge"><i class="fas fa-award text-gold"></i> 5.0 Star Rated Application</div>
+                <div class="rating-badge"><i class="fas fa-star text-gold"></i> 5.0 Star Rated Architecture</div>
             </div>
         </div>
     </footer>
+
+    <!-- Login Modal -->
+    <div class="modal-overlay" id="loginModal">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3 class="modal-title" id="authModalTitle"><i class="fas fa-user-circle text-gradient"></i> Customer Login</h3>
+                <button class="modal-close" id="closeLoginModal">&times;</button>
+            </div>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="userEmail">Email Address</label>
+                    <input type="email" id="userEmail" placeholder="name@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="userPass">Password</label>
+                    <input type="password" id="userPass" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block btn-lg"><i class="fas fa-sign-in-alt"></i> Sign In</button>
+            </form>
+        </div>
+    </div>
 
     <!-- Toast Notification Container -->
     <div id="toastContainer" class="toast-container"></div>
