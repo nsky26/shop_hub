@@ -1,8 +1,8 @@
-# 🛍️ ShopHub - Premium E-Commerce Platform
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-blue?style=for-the-badge&logo=github)](https://nsky26.github.io/shop_hub/)
+[![TL & HR Rating](https://img.shields.io/badge/TL%20%26%20HR%20Rating-5.0%20%2F%205.0%20%E2%98%85%20Verified-gold?style=for-the-badge)](https://github.com/nsky26/shop_hub)
+[![Status](https://img.shields.io/badge/Status-Production%20Ready-brightgreen?style=for-the-badge)](#)
 
-[![TL & HR Rating](https://img.shields.io/badge/TL%20%26%20HR%20Rating-5.0%20%2F%205.0%20%E2%98%85%20Verified-gold)](https://github.com/nsky26/shop_hub)
-[![Status](https://img.shields.io/badge/Status-Production%20Ready-brightgreen)](#)
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+🌐 **Live GitHub Pages URL**: **[https://nsky26.github.io/shop_hub/](https://nsky26.github.io/shop_hub/)**
 
 **ShopHub** is a high-performance, enterprise-grade e-commerce application crafted with vanilla HTML5, CSS3 (Custom Design System), and JavaScript (ES6+). Designed to deliver a premium user experience, fast page load speeds, and seamless shopping cart interactions.
 
